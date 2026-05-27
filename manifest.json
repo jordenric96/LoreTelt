@@ -1,0 +1,21 @@
+{
+  "name": "Lore's Prijsvergelijker",
+  "short_name": "Prijs App",
+  "description": "Een handige app om prijzen per stuk te vergelijken tussen verschillende winkels.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fce4ec",
+  "theme_color": "#fce4ec",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
