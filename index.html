@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore's Prijsvergelijker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#fce4ec">
+</head>
+<body>
+    <div class="container">
+        <h1>Lore's Prijsvergelijker 💖</h1>
+        
+        <div class="card product-card">
+            <label for="product-name">Om welk product gaat het?</label>
+            <input type="text" id="product-name" placeholder="Bijv. Pampers Baby-Dry">
+        </div>
+
+        <div id="stores-container">
+            </div>
+
+        <button id="add-store-btn" class="btn primary-btn">➕ Nog een winkel toevoegen</button>
+
+        <div id="conclusion-box" class="card conclusion-card hidden">
+            <h2>✨ Conclusie</h2>
+            <p id="conclusion-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
