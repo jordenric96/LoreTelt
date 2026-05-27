@@ -1,9 +1,8 @@
-/* Basis variabelen voor het parelroze thema */
 :root {
-    --pearl-bg: #fff0f5; /* Lavender blush / zacht parelroze */
+    --pearl-bg: #fff0f5;
     --card-bg: #ffffff;
     --primary-pink: #f48fb1;
-    --dark-pink: #880e4f; /* In plaats van zwart voor tekst */
+    --dark-pink: #880e4f;
     --medium-pink: #d81b60;
     --shadow-color: rgba(244, 143, 177, 0.3);
     --border-radius: 16px;
@@ -44,7 +43,6 @@ h2 {
     color: var(--medium-pink);
 }
 
-/* Zachte kaarten zonder lelijke kaders */
 .card {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
@@ -87,7 +85,6 @@ input:focus, select:focus {
     box-shadow: 0 0 8px var(--shadow-color);
 }
 
-/* Knoppen */
 .btn {
     width: 100%;
     padding: 14px;
@@ -129,7 +126,6 @@ input:focus, select:focus {
     width: auto;
 }
 
-/* Resultaat styling */
 .unit-price-result {
     text-align: right;
     font-size: 18px;
