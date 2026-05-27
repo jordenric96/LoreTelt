@@ -7,7 +7,7 @@ const productNameInput = document.getElementById('product-name');
 let storeCount = 0;
 const maxStores = 4;
 
-const storeOptions = ["Albert Heijn", "Kruidvat", "Colruyt", "Bol", "Plein"];
+const storeOptions = ["Albert Heijn", "Kruidvat", "Colruyt", "Bol", "Plein", "Andere"];
 
 function createStoreCard() {
     if (storeCount >= maxStores) return;
@@ -27,14 +27,14 @@ function createStoreCard() {
             ${optionsHtml}
         </select>
 
-        <label>Totale prijs (voor korting) in €</label>
+        <label>Totale prijs in €</label>
         <input type="number" step="0.01" class="store-price" placeholder="Bijv. 15.99" oninput="calculate()">
 
-        <label>Aantal eenheden (bijv. 52 stuks)</label>
+        <label>Aantal eenheden</label>
         <input type="number" class="store-units" placeholder="Bijv. 52" oninput="calculate()">
 
-        <label>Korting in € (Plus kaart, promo...)</label>
-        <input type="number" step="0.01" class="store-discount" placeholder="Bijv. 2.50" value="0" oninput="calculate()">
+        <label>Korting in %</label>
+        <input type="number" step="0.1" class="store-discount" placeholder="Bijv. 10" value="0" oninput="calculate()">
 
         <div class="unit-price-result">Prijs per stuk: <span class="unit-price-display">€0.00</span></div>
     `;
@@ -67,13 +67,16 @@ function calculate() {
         const name = card.querySelector('.store-name').value;
         const price = parseFloat(card.querySelector('.store-price').value) || 0;
         const units = parseFloat(card.querySelector('.store-units').value) || 0;
-        const discount = parseFloat(card.querySelector('.store-discount').value) || 0;
+        const discountPercent = parseFloat(card.querySelector('.store-discount').value) || 0;
         const display = card.querySelector('.unit-price-display');
 
         if (price > 0 && units > 0) {
-            const finalPrice = price - discount;
+            // Berekening met procentuele korting
+            const discountAmount = price * (discountPercent / 100);
+            const finalPrice = price - discountAmount;
             const unitPrice = finalPrice / units;
-            display.innerText = `€${unitPrice.toFixed(4)}`; // 4 decimalen voor precisie bij bijv. pampers
+            
+            display.innerText = `€${unitPrice.toFixed(4)}`;
             
             results.push({ name, unitPrice });
         } else {
@@ -90,7 +93,6 @@ function generateConclusion(results) {
         return;
     }
 
-    // Sorteer van goedkoopst naar duurst
     results.sort((a, b) => a.unitPrice - b.unitPrice);
 
     const cheapest = results[0];
@@ -109,6 +111,6 @@ function generateConclusion(results) {
     conclusionBox.classList.remove('hidden');
 }
 
-// Start met 1 winkelveld
+// Start direct met 2 winkelvelden om vlot te vergelijken
 createStoreCard();
-createStoreCard(); // Meteen een 2e toevoegen is handiger om direct te vergelijken
+createStoreCard();
